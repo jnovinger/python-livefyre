@@ -32,7 +32,6 @@ class Livefyre(object):
 
     def __init__(self, network=None, site_id=None, site_secret=None):
         super(Livefyre, self).__init__()
-        import ipdb; ipdb.set_trace()
 
         self.network = network or DEFAULT_LIVEFYRE_NETWORK
         self.site_id = site_id or DEFAULT_LIVEFYRE_SITE_ID
@@ -54,16 +53,8 @@ class Livefyre(object):
 
     def send_data(self, endpoint, payload):
 
-        #auth = ('token', self.token)
-        #headers = {'Content-Type': 'application/logplex-1'}
-        #data = self.format_data(s)
         url = '{}{}'.format(self.api, endpoint)
-
-        return self.session.post(url,
-            #auth=auth,
-            #headers=headers,
-            data=payload,
-        )
+        return self.session.post(url, data=payload)
 
 
 class Collection(object):
