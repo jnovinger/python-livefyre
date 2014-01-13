@@ -81,7 +81,7 @@ class Collection(object):
         _collection = {
             'title': title if len(title) < 256 else title[:255],
             'url': url,
-            'article_id': article_id if len(article_id) < 256 else article_id[:255],
+            'articleId': article_id if len(article_id) < 256 else article_id[:255],
             'stream_type': stream_type,
             'tags': self._tagify(tags),
         }
