@@ -11,3 +11,11 @@ install: pip install -r requirements_dev.txt
 
 # command to run tests, e.g. python setup.py test
 script: nosetests
+
+env:
+  global:
+    - LIVEFYRE_NETWORK=awesome-network
+    - LIVEFYRE_NETWORK_SECRET=radnetworksekret
+    - LIVEFYRE_SITE_ID=987654
+    - LIVEFYRE_SITE_SECRET=asdkashdfsdfkkhasdf
+
