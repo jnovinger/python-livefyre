@@ -1,3 +1,3 @@
 -r requirements.txt
 nose>=1.3.0
--e git+https://github.com/jnovinger/httmock.git@add_context#egg=httmock
+httmock==1.1
