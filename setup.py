@@ -28,9 +28,11 @@ setup(
     packages=[
         'python-livefyre',
     ],
-    package_dir={'python-livefyre': 'python-livefyre'},
+    package_dir={'python-livefyre': 'livefyre'},
     include_package_data=True,
     install_requires=[
+        'PyJWT>=0.1.6',
+        'requests>=2.2.0',
     ],
     license="BSD",
     zip_safe=False,

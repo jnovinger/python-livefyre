@@ -15,9 +15,11 @@ Python Livefyre
 API wrapper for Livefyre v3
 
 * Free software: BSD license
-* Documentation: http://python-livefyre.rtfd.org.
 
 Features
 --------
 
-* TODO
+* Implements the following Livefyre LiveComments v3 APIs:
+    * Ping to Pull (profile)
+    * Register Profile Interface URL
+    * Create Collection
