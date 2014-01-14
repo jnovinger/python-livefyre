@@ -6,11 +6,7 @@ import livefyre
 class ApiTestCase(unittest.TestCase):
     def setUp(self):
         token = 'thisisanawesometoken'
-        self.lf = livefyre.Livefyre(network=network,
-                                    network_secret=network_secret,
-                                    site_id=site_id,
-                                    site_secret=secret,
-                                    system_token=token)
+        self.lf = livefyre.Livefyre()
 
     def test_register_profile_pull_interface(self):
         resp = self.lf.register_profile_pull_interface(

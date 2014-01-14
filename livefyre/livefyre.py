@@ -86,7 +86,7 @@ class Livefyre(object):
         self.base_api = LIVEFYRE_API_BASE.format(network=self.network,
                                             site_id=self.site_id)
         self.bare_api = LIVEFYRE_API_BARE.format(network=self.network)
-        self.user_api = LIVEFYRE_API_USER_BASE.format(network=network)
+        self.user_api = LIVEFYRE_API_USER_BASE.format(network=self.network)
 
         self._system_token = system_token
 
