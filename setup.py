@@ -5,10 +5,7 @@ import os
 import sys
 
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 if sys.argv[-1] == 'publish':
     os.system('python setup.py sdist upload')
@@ -25,10 +22,7 @@ setup(
     author='Jason Novinger',
     author_email='jnovinger@gmail.com',
     url='https://github.com/jnovinger/python-livefyre',
-    packages=[
-        'python-livefyre',
-    ],
-    package_dir={'python-livefyre': 'livefyre'},
+    packages=find_packages(),
     include_package_data=True,
     install_requires=[
         'PyJWT>=0.1.6',
