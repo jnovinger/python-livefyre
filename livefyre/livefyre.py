@@ -109,9 +109,25 @@ class Livefyre(object):
     def _make_jid(self, user_id):
         return jid(user_id, self.network)
 
-    def _create_auth_token(self, user_id='system', name="", expires=None):
+    def _create_auth_token(self, user_id='system', display_name="", expires=None):
         """ Generate a JSON Web Token for a user id."""
-        return create_auth_token(user_id, self.network, self.network_secret)
+        return create_auth_token(
+            user_id=user_id,
+            network=self.network,
+            network_secret=self.network_secret,
+            display_name=display_name,
+        )
+
+    def list_sites(self):
+        params = {'actor_token': self.token}
+        params = urlencode(params)
+
+        response = self.send_data(
+            endpoint='/sites?{}'.format(params),
+            payload={},
+            api='http://quill.{}.fyre.co/'.format(self.network),
+        )
+        return response.content, response
 
     def create_collection(self, title, url, article_id, stream_type, tags):
         collection = Collection(
@@ -130,8 +146,8 @@ class Livefyre(object):
         hit our pre-registered API point to grab new information about the
         profile.
 
-        If `user_id` is not a string, it is assumed to be an object with a
-        `livefyre_id` attribute. Note: see
+        If :param:`user_id` is not a string, it is assumed to be an object with
+        a :var:`livefyre_id` attribute. See:
         [django-coversate](https://github.com/dailydot/django-conversate).
 
         If no token is passed, then one will be generated based on exisiting
@@ -165,7 +181,7 @@ class Livefyre(object):
 
     def send_data(self, endpoint, payload, method="POST", api=None):
         if api is None:
-            api = self.api
+            api = self.base_api
         url = '{}{}'.format(api, endpoint)
 
         assert method in HTTP_METHODS, "Sorry, we only support {} as HTTP methods".format(HTTP_METHODS)
