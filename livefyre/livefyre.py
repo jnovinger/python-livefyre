@@ -79,6 +79,10 @@ class Livefyre(object):
         super(Livefyre, self).__init__()
 
         self.network = network or DEFAULT_LIVEFYRE_NETWORK
+
+        if ".fyre.co" in self.network:
+            self.network = self.network.replace(".fyre.co", "")
+
         self.network_secret = network_secret or DEFAULT_LIVEFYRE_NETWORK_SECRET
         self.site_id = site_id or DEFAULT_LIVEFYRE_SITE_ID
         self.site_secret = site_secret or DEFAULT_LIVEFYRE_SITE_SECRET
