@@ -153,7 +153,7 @@ class Livefyre(object):
 
     def register_profile_pull_interface(self, url, token=None):
 
-        assert validate_url(url), "The Pull URL must be a valide HTTP(s) URL."
+        assert 'http' in url, "The Pull URL must be a valide HTTP(s) URL."
         params = {
             'actor_token': token or self.token,
             'pull_profile_url': url,
