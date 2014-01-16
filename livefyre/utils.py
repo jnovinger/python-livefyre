@@ -10,7 +10,27 @@ def create_auth_token(user_id,
                       network_secret,
                       display_name=None,
                       expires=None):
-    """ """
+    """Utility function to create JWT auth tokens on the fly.
+
+    :param str user_id:
+        Required, the user name reported to Livefyre.
+    :param str network:
+        Required, the network name assigned by Livefyre.
+    :param str network_secret:
+        Required, the network secret assigned by Livefyre
+    :param str display_name:
+        Optional, the name to display in Livefyre apps for the user. If not
+        supplied, the :param:`user_id` is reused.
+    :param datetime expires:
+        Optional, a preset expiration datetime indicating when the token should
+        expire. This is mostly used for testing and if not supplied the token
+        will be set to expire in 24 hours.
+
+    :returns:
+        The JWT auth token
+    :rtype:
+        JSON blob string
+    """
 
     expires = expires or datetime.now() + timedelta(hours=24)
     token = {
@@ -19,7 +39,6 @@ def create_auth_token(user_id,
         'expires': time.mktime(expires.timetuple()),
         'display_name': display_name or user_id,
     }
-    print token
 
     return jwt_encode(token, network_secret)
 
