@@ -16,7 +16,7 @@ history = open('HISTORY.rst').read().replace('.. :changelog:', '')
 
 setup(
     name='python-livefyre',
-    version='0.1.1',
+    version='0.1.2',
     description='API wrapper for Livefyre v3',
     long_description=readme + '\n\n' + history,
     author='Jason Novinger',
