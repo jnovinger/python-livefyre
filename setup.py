@@ -25,7 +25,7 @@ setup(
     packages=find_packages(),
     include_package_data=True,
     install_requires=[
-        'PyJWT>=0.1.6',
+        'PyJWT==0.1.6',
         'requests>=2.2.0',
     ],
     license="BSD",
