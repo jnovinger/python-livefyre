@@ -3,6 +3,11 @@
 History
 -------
 
+0.1.2 (2014-01-20)
+++++++++++++++++++
+
+* Fixes broken imports introduced in PyJWT v0.1.7 by pinning to 0.1.6.
+
 0.1.2 (2014-01-15)
 ++++++++++++++++++
 
