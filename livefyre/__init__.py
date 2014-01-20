@@ -3,6 +3,6 @@
 
 __author__ = 'Jason Novinger'
 __email__ = 'jnovinger@gmail.com'
-__version__ = '0.1.2'
+__version__ = '0.1.3'
 
 from livefyre import Livefyre, Collection
