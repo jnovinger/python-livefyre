@@ -67,6 +67,6 @@ def _validate_url(url):
 # otherwise use the above simple validator
 try:
     from django.core.validators import URLValidator
-    validate_url = URLValidator(verify_exists=False)
+    validate_url = URLValidator()
 except ImportError:
     validate_url = _validate_url
